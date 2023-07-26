@@ -38,6 +38,6 @@ class LRUCache(BaseCaching):
     def get(self, key):
         """return the value in self.cache_data linked to key
         """
-        if key not in self.order:
+        if key is None or self.cache_data.get(key) is None:
             return None
         return self.cache_data[key]

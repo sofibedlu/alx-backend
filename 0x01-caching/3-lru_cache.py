@@ -30,7 +30,7 @@ class LRUCache(BaseCaching):
             if len(self.order) >= BaseCaching.MAX_ITEMS:
                 key_value = self.order.pop(0)
                 del self.cache_data[key_value]
-                print("DISCARD {}".format(key_value))
+                print("DISCARD: {}".format(key_value))
             self.cache_data[key] = item
 
         self.order.append(key)

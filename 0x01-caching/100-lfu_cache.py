@@ -9,13 +9,17 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LFUCache(BaseCaching):
-
+    """
+    represent a caching system
+    """
     def __init__(self):
+        """initialize"""
         super().__init__()
         self.frequency = defaultdict(int)
         self.access_order = {}  # {key: timestamp}
 
     def put(self, key, item):
+        """add item to the cach"""
         if key is None or item is None:
             return
 
@@ -41,6 +45,7 @@ class LFUCache(BaseCaching):
             self.access_order[key] = datetime.now()
 
     def get(self, key):
+        """get item from the cach"""
         if key is None or key not in self.cache_data:
             return None
 
